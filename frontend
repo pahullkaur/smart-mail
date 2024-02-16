@@ -1,0 +1,31 @@
+import tkinter as tk
+
+def check_password():
+    password = password_entry.get()
+    if password == "123456":  # Change this to your desired password
+        message_label.config(text="Mail opened successfully!", fg="green")
+    else:
+        message_label.config(text="Incorrect password. Try again.", fg="red")
+
+# Create main window
+root = tk.Tk()
+root.title("SmartMail")
+root.configure(bg="blue")
+
+# Logo and Title
+logo_label = tk.Label(root, text="SmartMail", font=("Arial", 20), bg="blue", fg="white")
+logo_label.grid(row=0, column=0, padx=20, pady=20, sticky="w")
+
+# Message
+message_label = tk.Label(root, text="Enter password to open mail", font=("Arial", 14), bg="blue", fg="white")
+message_label.grid(row=1, column=0, padx=20, pady=10, sticky="w")
+
+# Password Entry
+password_entry = tk.Entry(root, show="*", font=("Arial", 14))
+password_entry.grid(row=2, column=0, padx=20, pady=10)
+
+# Button
+submit_button = tk.Button(root, text="Submit", command=check_password, font=("Arial", 14))
+submit_button.grid(row=3, column=0, padx=20, pady=10)
+
+root.mainloop()
